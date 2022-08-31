@@ -13,12 +13,12 @@
         <!-- Scripts -->
         {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
         <!-- Vendor CSS Files -->
-        <link href="{{  asset('vendor/animate.css/animate.min.css') }}" rel="stylesheet">
-        <link href="{{  asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{  asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-        <link href="{{  asset('vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-        <link href="{{  asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-        <link href="{{  asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+        <link href="{{  asset('theme_vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+        <link href="{{  asset('theme_vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{  asset('theme_vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+        <link href="{{  asset('theme_vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+        <link href="{{  asset('theme_vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+        <link href="{{  asset('theme_vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
         <link href="{{  asset('Trumbowyg/dist/ui/trumbowyg.min.css') }}" rel="stylesheet">
 
 
@@ -240,10 +240,10 @@
         <img src="/storage/loader.gif" alt="loader" id="loader" class="d-none" style="width: 4rem;position: fixed; z-index: 10; left: 46%; top: 35%">
 
         <!-- Vendor JS Files -->
-        <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{ asset('vendor/glightbox/js/glightbox.min.js')}}"></script>
-        <script src="{{ asset('vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-        <script src="{{ asset('vendor/swiper/swiper-bundle.min.js')}}"></script>
+        <script src="{{ asset('theme_vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{ asset('theme_vendor/glightbox/js/glightbox.min.js')}}"></script>
+        <script src="{{ asset('theme_vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+        <script src="{{ asset('theme_vendor/swiper/swiper-bundle.min.js')}}"></script>
 
         <!-- Template Main JS File -->
         
