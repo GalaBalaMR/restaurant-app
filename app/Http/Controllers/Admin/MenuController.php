@@ -124,6 +124,7 @@ class MenuController extends Controller
     public function destroy(Menu $menu)
     {
         Storage::delete($menu->image);
+        $menu->categories()->detach();
         $menu->delete();
 
         return redirect('/admin/menus')->with(['info' => 'Kategória bola odstránená','type'  => 'danger']);
