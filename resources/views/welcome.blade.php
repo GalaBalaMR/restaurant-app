@@ -116,7 +116,7 @@
                     @foreach($category->menus as $menu)
                     <div class="col-lg-6 menu-item filter-{{ $category->id }}">
                         <div class="menu-content">
-                            <a href="#">{{ $menu->name }}</a>
+                            <a>{{ $menu->name }}</a>
                         </div>
                         <div class="menu-ingredients">
                             {{ $menu->description }}
@@ -127,6 +127,46 @@
                 @endforeach
       
               </div>
+
+              {{-- Search in menu --}}
+              <h2 class="text-center m-3">Vyhľadať v menu</h2>
+
+              @if (session()->has('search'))
+                <div id="flash-message" class="alert alert-{{ session('type')}} col-8 m-auto mt-3">
+                    <p>
+                        {{session('search')}}
+                    </p>
+                </div>
+              @endif
+
+              {{-- Form for searching in menu base on ingredients --}}
+              <form action="{{ route('menu.search') }}" method="POST" class="m-auto text-center mt-3">
+                @csrf
+
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0 m-auto">
+                  <input type="input" class="form-control" name="ingredient" id="ingredient" placeholder="Napíš ingredienciu napr. ryža" :value="old('ingredient')" required autofocus>
+                </div>
+
+                <button type="submit" class="book-a-table-btn border border-none mt-2">Vyhľadať</button>
+
+              </form>
+              {{-- Result from searching --}}
+              @if (session()->has('menuSearch'))
+              <div class="row menu-container">
+                @foreach( Session::get('menuSearch') as $menu)
+                  <div class="col-lg-6 menu-item">
+                    <div class="menu-content">
+                        <a>{{ $menu->name }}</a>
+                    </div>
+                    <div class="menu-ingredients">
+                        {{ $menu->description }}
+                    </div>
+                    <img src="{{ Storage::url($menu->image) }}" class="img-thumbnail" alt="..." style="height: 100px; width: 150px;">
+                  </div>
+                @endforeach
+                </div>
+              @endif
+
       
             </div>
         </section><!-- End Menu Section -->
