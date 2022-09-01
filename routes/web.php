@@ -29,8 +29,10 @@ use App\Http\Controllers\Frontend\ReservationController as FrontendReservationCo
 Route::get('/', [WelcomeController::class , 'index'])->name('welcome.index');
 
 Route::get('/user', [UserController::class , 'show'])->middleware(['auth'])->name('user.index');
+
 Route::post('/email', [MailController::class , 'index'])->name('email.index');
 
+Route::post('/search-menu', [MenuController::class , 'search'])->name('menu.search');
 
 Route::get('/categories', [FrontendCategoryController::class , 'index'])->name('categories.index');
 Route::get('/categories/{category}', [FrontendCategoryController::class , 'show'])->name('categories.show');
