@@ -17,7 +17,7 @@ class MenuSeeder extends Seeder
     {
         $menu = Menu::create([
             'name' => 'Mäsové guličky',
-            'description' => 'Mäso s ryžou v guličke :D',
+            'description' => 'Mäso s ryžou v guličke',
             'image' => 'public/menus/wbcw5sODk22000B2rRGcLq8c8Rf5yfe5IfHGToRD.jpg',
             'price' => 10,
              ]);
