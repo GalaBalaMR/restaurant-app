@@ -16,7 +16,7 @@ use App\Http\Requests\ReservationStoreRequest;
 class ReservationController extends Controller
 {
 
-    //return view for reservation and send it $tables and $now
+    //return view for reservation and send there $tables and $now
     public function stepOne(Request $request){
         $tables = Table::where('status','avaliable')->get();
         $now = Carbon::now('Europe/Bratislava')->format('m d, H');
