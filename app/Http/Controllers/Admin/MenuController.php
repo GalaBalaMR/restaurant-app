@@ -129,4 +129,33 @@ class MenuController extends Controller
 
         return redirect('/admin/menus')->with(['info' => 'Kategória bola odstránená','type'  => 'danger']);
     }
+
+    public function search(Request $request)
+    {
+        $ingredient = $request->ingredient;
+
+        $menuSearch = Menu::where('description', 'like', '%'. $ingredient .'%')->get();
+
+        if($menuSearch->count() > 0)
+        {
+            $flash = 'Podarilo sa nájsť menu';
+            $status = '1';
+            $type = 'success';
+        }else{
+            $flash = 'Nepodarilo sa nájsť menu';
+            $status = '0';
+            $type = 'danger';
+
+        }
+
+        if($request->ajax())
+        {
+            return response()->json(['flash' => $flash ,
+                                     'status'=> $status
+                                    ]);
+        }
+        return back()->with(['search' => $flash ,
+                             'type'=> $type,
+                             'menuSearch' => $menuSearch ]);
+    }
 }
