@@ -11,8 +11,6 @@ use App\Http\Controllers\Frontend\MailController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Frontend\ContentController;
 use App\Http\Controllers\Admin\ReservationController;
-use App\Http\Controllers\Frontend\MenuController as FrontendMenuController;
-use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Http\Controllers\Frontend\ReservationController as FrontendReservationController;
 
 /*
@@ -34,9 +32,6 @@ Route::post('/email', [MailController::class , 'index'])->name('email.index');
 
 Route::post('/search-menu', [MenuController::class , 'search'])->name('menu.search');
 
-Route::get('/categories', [FrontendCategoryController::class , 'index'])->name('categories.index');
-Route::get('/categories/{category}', [FrontendCategoryController::class , 'show'])->name('categories.show');
-Route::get('/menus', [FrontendMenuController::class , 'index'])->name('menus.index');
 Route::get('/reservation/step-one', [FrontendReservationController::class , 'stepOne'])->name('reservations.step.one');
 Route::post('/reservation/step-one', [FrontendReservationController::class , 'storeStepOne'])->name('reservations.store.step.one');
 Route::get('/reservation/step-two', [FrontendReservationController::class , 'stepTwo'])->name('reservations.step.two'); 
