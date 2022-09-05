@@ -47,6 +47,7 @@ class MenuController extends Controller
         $menu = Menu::create([
             'name' => $request->name,
             'description' => $request->description,
+            'ingredients' => $request->ingredients,
             'price' => $request->price,
             'image' => $image,
         ]);
@@ -56,17 +57,6 @@ class MenuController extends Controller
         }
 
         return redirect('/admin/menus/')->with(['info' => 'Vytvorili ste nové menu','type'  => 'success']);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -93,6 +83,7 @@ class MenuController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
+            'ingredients' => 'required',
             'price' => 'required',
         ]);
         $image = $menu->image;
@@ -105,6 +96,7 @@ class MenuController extends Controller
         $menu->update([
             'name' => $request->name,
             'description' => $request->description,
+            'ingredients' => $request->ingredients,
             'price' => $request->price,
             'image' => $image,
         ]);
@@ -134,7 +126,7 @@ class MenuController extends Controller
     {
         $ingredient = $request->ingredient;
 
-        $menuSearch = Menu::where('description', 'like', '%'. $ingredient .'%')->get();
+        $menuSearch = Menu::where('ingredients', 'like', '%'. $ingredient .'%')->get();
 
         if($menuSearch->count() > 0)
         {

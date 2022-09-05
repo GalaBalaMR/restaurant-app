@@ -15,6 +15,7 @@
               <tr>
                 <th scope="col" class="col-">Name</th>
                 <th scope="col" class="col-">Description</th>
+                <th scope="col" class="col-">Ingrediencie</th>
                 <th scope="col" class="col-">Price</th>
                 <th scope="col" class="col-">Image</th>
                 <th scope="col" class="col-"></th>
@@ -25,6 +26,7 @@
               <tr class="">
                 <td>{{ $menu->name }}</td>
                 <td>{{ $menu->description }}</td>
+                <td>{{ $menu->ingredients }}</td>
                 <td>{{ $menu->price }}</td>
                 <td><img class="img-thumbnail" src="{{ Storage::url($menu->image) }}" alt="{{ $menu->name }}" style="height: 100px; width: 150px;"></td>
                 <td class="align-lg-middle">
@@ -58,6 +60,7 @@
           </h6>
           <h6 class="card-subtitle mb-2 text-muted">{{ $menu->price }} €</h6>
           <p class="card-text">{{ $menu->description }}</p>
+          <p class="card-text">{{ $menu->ingredients }}</p>
           <div class="d-flex justify-content-center">
             <a href="{{ route('admin.menus.edit', $menu->id) }}" class="btn btn-warning me-2">Editovať</a>
             <form action="{{ route('admin.menus.destroy', $menu->id) }}"

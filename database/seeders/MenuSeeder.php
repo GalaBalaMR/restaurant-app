@@ -18,6 +18,7 @@ class MenuSeeder extends Seeder
         $menu = Menu::create([
             'name' => 'Mäsové guličky',
             'description' => 'Mäso s ryžou v guličke',
+            'ingredients' => 'Zelenina, mäso, ryža, mrkva, uhorka',
             'image' => 'public/menus/wbcw5sODk22000B2rRGcLq8c8Rf5yfe5IfHGToRD.jpg',
             'price' => 10,
              ]);
@@ -28,6 +29,7 @@ class MenuSeeder extends Seeder
         $menu = Menu::create([
             'name' => 'Zeleninové guličky',
             'description' => 'Zelenina s ryžou v guličke',
+            'ingredients' => 'Zelenina, ryža, mrkva, uhorka',
             'image' => 'public/menus/LrM5nCOZLt1dG8vYvTyc96U2IDdE5GzUoX0SsjbW.jpg',
             'price' => 8,
             ]);

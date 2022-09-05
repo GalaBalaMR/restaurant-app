@@ -103,8 +103,11 @@
                 <div class="col-lg-12 d-flex justify-content-center">
                   <ul id="menu-flters">
                     <li data-filter="*" class="filter-active">Show All</li>
+
                     @foreach($categories as $category)
+
                     <li data-filter=".filter-{{ $category->id }}">{{ $category->name }}</li>
+
                     @endforeach
                   </ul>
                 </div>
@@ -113,15 +116,24 @@
               <div class="row menu-container">
                 
                 @foreach($categories as $category)
+                
                     @foreach($category->menus as $menu)
                     <div class="col-lg-6 menu-item filter-{{ $category->id }}">
+
                         <div class="menu-content">
                             <a>{{ $menu->name }}</a>
                         </div>
+
                         <div class="menu-ingredients">
                             {{ $menu->description }}
                         </div>
+
+                        <div class="menu-ingredients">
+                            {{ $menu->ingredients }}
+                        </div>
+
                         <img src="{{ Storage::url($menu->image) }}" class="img-thumbnail" alt="..." style="height: 100px; width: 150px;">
+
                     </div>
                     @endforeach
                 @endforeach
@@ -133,9 +145,11 @@
 
               @if (session()->has('search'))
                 <div id="flash-message" class="alert alert-{{ session('type')}} col-8 m-auto mt-3">
+
                     <p>
                         {{session('search')}}
                     </p>
+
                 </div>
               @endif
 
@@ -150,18 +164,27 @@
                 <button type="submit" class="book-a-table-btn border border-none mt-2">Vyhľadať</button>
 
               </form>
+
               {{-- Result from searching --}}
               @if (session()->has('menuSearch'))
               <div class="row menu-container">
                 @foreach( Session::get('menuSearch') as $menu)
                   <div class="col-lg-6 menu-item">
+
                     <div class="menu-content">
                         <a>{{ $menu->name }}</a>
                     </div>
+
                     <div class="menu-ingredients">
                         {{ $menu->description }}
                     </div>
+
+                    <div class="menu-ingredients">
+                      {{ $menu->ingredients }}
+                    </div>
+
                     <img src="{{ Storage::url($menu->image) }}" class="img-thumbnail" alt="..." style="height: 100px; width: 150px;">
+
                   </div>
                 @endforeach
                 </div>

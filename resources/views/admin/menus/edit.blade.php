@@ -29,6 +29,12 @@
           <label class="form-label" for="description">Opis menu</label>
         </div>
 
+        <!-- Ingredients input -->
+        <div class="form-outline mb-4">
+            <textarea class="form-control" id="ingredientsmenu"  placeholder="Opis" rows="3" name="ingredients">{{ old('description', $menu->ingredients) }}</textarea>
+            <label class="form-label" for="ingredientsmenu">Ingrediencie menu</label>
+        </div>
+
         {{-- Old image --}}
         <div class="">
             <img src="{{ Storage::url($menu->image) }}" class="img-thumbnail m-auto mb-2" alt="">

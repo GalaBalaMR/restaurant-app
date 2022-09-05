@@ -29,6 +29,12 @@
           <label class="form-label" for="descriptioncategory">Opis menu</label>
         </div>
 
+        <!-- Ingredients input -->
+        <div class="form-outline mb-4">
+          <textarea class="form-control" id="ingredientsmenu"  placeholder="Opis" rows="3" name="ingredients"></textarea>
+          <label class="form-label" for="ingredientsmenu">Ingrediencie menu</label>
+        </div>
+
         {{-- choose image input --}}
         <div class="input-group mb-1">
             <input type="file" class="form-control" id="inputGroupFile02" name="image">
