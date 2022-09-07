@@ -17,84 +17,84 @@ class HomeTest extends TestCase
     use RefreshDatabase;
  
 
-    // public function testIfHomePageRuningCorrectly()
-    // {
-    //     // Run a specific seeder...
-    //     $this->seed(ContentSeeder::class);
-    //     $response = $this->get('/');
+    public function testIfHomePageRuningCorrectly()
+    {
+        // Run a specific seeder...
+        $this->seed(ContentSeeder::class);
+        $response = $this->get('/');
 
-    //     $response->assertStatus(200);
-    // }
+        $response->assertStatus(200);
+    }
 
-    // public function testIfDatabaseCanSaveContent()
-    // {
-    //     $content = New Content;
-    //     $content->name = 'New Content';
-    //     $content->content = 'Content';
-    //     $content->save();
+    public function testIfDatabaseCanSaveContent()
+    {
+        $content = New Content;
+        $content->name = 'New Content';
+        $content->content = 'Content';
+        $content->save();
 
-    //     //Assert
-    //     $this->assertDatabaseHas('contents', [
-    //         'name'      => 'New Content',
-    //         'content'   => 'Content',
-    //     ]);
-    // }
+        //Assert
+        $this->assertDatabaseHas('contents', [
+            'name'      => 'New Content',
+            'content'   => 'Content',
+        ]);
+    }
 
     
-    // public function testIfAdminCanAddTable()
-    // {
+    public function testIfAdminCanAddTable()
+    {
        
-    //     $this->seed();
-    //     $this->seed(RoleAndPermissionSeeder::class);
-    //     $admin = User::where('name', 'Admin')->first();
+        $this->seed();
+        $this->seed(RoleAndPermissionSeeder::class);
+        $admin = User::where('name', 'Admin')->first();
 
         
-    //     $this
-    //     ->actingAs($admin)
-    //     ->post('/admin/tables', [
-    //         'name'  => 'table',
-    //         'guest_number' => 4,
-    //         'status' => 'available',
-    //         'location' => 'upstair',
-    //         'user_id' => $admin->id,
-    //         '_token' => csrf_token(),
+        $this
+        ->actingAs($admin)
+        ->post('/admin/tables', [
+            'name'  => 'table',
+            'guest_number' => 4,
+            'status' => 'available',
+            'location' => 'upstair',
+            'user_id' => $admin->id,
+            '_token' => csrf_token(),
             
-    //     ])->assertStatus(302)
-    //     ->assertSessionHas('info');
+        ])->assertStatus(302)
+        ->assertSessionHas('info');
 
-    //     $this->assertEquals(session('info'), 'Vytvorili ste nový stôl');
+        $this->assertEquals(session('info'), 'Vytvorili ste nový stôl');
 
-    // }
+    }
 
-    // public function testIfTableFormIsValidated()
-    // {
+    public function testIfTableFormIsValidated()
+    {
        
-    //     $this->seed();
-    //     $this->seed(RoleAndPermissionSeeder::class);//seed() not seeding role table
-    //     $admin = User::where('name', 'Admin')->first();
+        $this->seed();
+        $this->seed(RoleAndPermissionSeeder::class);//seed() not seeding role table
+        $admin = User::where('name', 'Admin')->first();
 
         
-    //     $this
-    //     ->actingAs($admin)
-    //     ->post('/admin/tables', [
-    //         'name'  => '',
-    //         'guest_number' => '',
-    //         'status' => '',
-    //         'location' => '',
-    //         'user_id' => $admin->id,
-    //         '_token' => csrf_token(),
+        $this
+        ->actingAs($admin)
+        ->post('/admin/tables', [
+            'name'  => '',
+            'guest_number' => '',
+            'status' => '',
+            'location' => '',
+            'user_id' => $admin->id,
+            '_token' => csrf_token(),
             
-    //     ])->assertStatus(302)
-    //     ->assertSessionHas('errors');
+        ])->assertStatus(302)
+        ->assertSessionHas('errors');
 
-    //     $messages = session('errors')->getMessages();
+        $messages = session('errors')->getMessages();
 
-    //     //dd($messages->getMessages()); //for dump messages
+        //dd($messages->getMessages()); //for dump messages
 
-    //     $this->assertEquals($messages['name'][0], 'The name field is required.');
-    //     $this->assertEquals($messages['location'][0], 'The location field is required.');
+        $this->assertEquals($messages['name'][0], 'The name field is required.');
+        $this->assertEquals($messages['location'][0], 'The location field is required.');
 
-    // }
+    }
 
     public function testIfAdminCanUpgradeTable()
     {
